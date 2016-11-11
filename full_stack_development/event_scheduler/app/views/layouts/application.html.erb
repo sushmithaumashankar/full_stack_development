@@ -23,16 +23,18 @@
        <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
+    <%= link_to "<button class=btn btn-warning>Log out</button>".html_safe,log_out_path%>
   <% else %>
-    <%= link_to "Sign up", sign_up_path %> 
-    <%= link_to "log in", log_in_path %>
+    <%= link_to "<button class=btn btn-warning>Sign up</button>".html_safe,sign_up_path%>
+    <%= link_to "<button class=btn btn-warning>Log in</button>".html_safe,log_in_path%>
+   
   <% end %>
 </div>
-
+<div class="color">
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
+</div>
       </ul>
     </div>
   </div>
@@ -41,7 +43,7 @@
 <%= yield %>
 <footer class="footer">
       <div class="container">
-        <p class="text-muted">© 2016 Webdesign-Inspiration.com • Alfredo digital agency . The best web designs inspirations.</p>
+        <p class="text-muted">© 2016 Event-Inspiration.com • Alfredo digital agency . The best event inspirations.</p>
       </div>
     </footer>
 

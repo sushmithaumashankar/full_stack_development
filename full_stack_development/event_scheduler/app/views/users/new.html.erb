@@ -1,6 +1,3 @@
-<h1>Sign Up</h1>
-
-
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -12,6 +9,8 @@
       </ul>
     </div>
   <% end %>
+  <div class="form1">
+  <h1>Sign Up</h1>
   <p>
     <%= f.label :Firstname %><br />
     <%= f.text_field :firstname %>
@@ -40,6 +39,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button"><%= submit_tag "Ok" %>
+    <%= submit_tag "Cancel" %>
+  </p>
   
 <% end %>
+</div>

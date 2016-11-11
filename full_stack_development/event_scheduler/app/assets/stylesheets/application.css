@@ -14,12 +14,15 @@
  *= require_self
  *= require_bootstrap
  */
+ body{
+ 	color: #d22137
+ }
 .btn-warning {
 	background-color: orange;
 	margin-top: 17px;
 }
 .footer{
-	background-color: black;
+	background-color: #eee;
 }
 .event{
 	background-color:#eee;
@@ -32,4 +35,16 @@
 .btn-warning{
 	padding:15px;
 	    margin-left: 1187px;
+}
+.form{
+	background-color: #eee;
+    width: 14%;
+    padding: 12px;
+    margin-left: 671px;
+}
+.form1{
+	background-color: #eee;
+    width: 16%;
+    padding: 26px;
+        margin-left: 617px;
 }
