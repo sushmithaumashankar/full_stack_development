@@ -22,7 +22,7 @@
       <ul class="nav navbar-nav navbar-right">
        <div id="user_nav">
   <% if current_user %>
-    Logged in as <%= current_user.email %>.
+    Logged in as <%= current_user.username %>.
     <%= link_to "<button class=btn btn-warning>Log out</button>".html_safe,log_out_path%>
   <% else %>
     <%= link_to "<button class=btn btn-warning>Sign up</button>".html_safe,sign_up_path%>
@@ -42,9 +42,9 @@
 
 <%= yield %>
 <footer class="footer">
-      <div class="container">
+    
         <p class="text-muted">© 2016 Event-Inspiration.com • Alfredo digital agency . The best event inspirations.</p>
-      </div>
+    
     </footer>
 
 

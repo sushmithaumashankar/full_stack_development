@@ -1,35 +1,50 @@
-<div class="form">
+<%= link_to 'Create events',event_new_form_path, :class=> "btn-warning" %>
 
+<center><h1>Create new event</h1></center><div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="well">
   <%= form_for :event do |f| %>
-<p>
-   <%= f.label :eventtitle %><br />
-   <%= f.text_field :eventtitle %>
+        <%= f.label :Title %>
+    <%= f.text_field :eventtitle, class: "form-control" %>          <%= f.label :Venu %>
+    <%= f.text_field :venue, class: "form-control" %>      <%= f.label :Description %>
+    <%= f.text_area :description, size: "10x3", class: "form-control" %>
+    <%= f.label :Invitees %><br /></p> 
+     <p>
+   <ul>
+  <% @users.each do |role| %>
+    <li>
+      <%= check_box_tag 'invitee_ids[]', role.id -%>
+      <%= role.username -%>
+    </li>
+  <% end %>
+</ul>
  </p>
- <p>
-   <%= f.label :venue %><br />
-   <%= f.text_field :venue %>
- </p>
- <p>
-   <%= f.label :date %><br />
-   <%= f.text_field :date %>
- </p>
- <p>
-   <%= f.label :time %><br />
-   <%= f.text_field :time %>
- </p>
- <p>
-   <%= f.label :description %><br />
-   <%= f.text_field :description %>
- </p>
- <p>
-   <%= f.label :invitees %><br />
-   <%= f.text_field :invitees %>
- </p>
- <p>
-   <%= f.label :status %><br />
-   <%= f.select :status, ['open', 'closed']%>
- </p>
-  <p class="button"><%= submit_tag "Create" %>
- <% end %>
- </div>
- 
+         <%= f.label :Date %>
+    <div class="datetime_select">
+      <%= select_month Time.now, prefix: :event,
+                                 field_name: :"event_date(2i)",
+                                 class: "form-control" %> /
+      <%= select_day Time.now, prefix: :event,
+                               field_name: :"event_date(3i)",
+                               class: "form-control" %> /
+      <%= select_year Time.now, prefix: :event,
+                                field_name: :"event_date(1i)",
+                                start_year: Time.now.year - 1,
+                                class: "form-control" %>
+    </div><br>
+     <%= f.label :event_time %>
+    <div class="datetime_select">
+    <%= select_hour 12, prefix: :event,
+                                field_name: :"event_date(4i)",
+                                ampm: true,
+                                class: "form-control" %> :
+      <%= select_minute 0, prefix: :event,
+                                  field_name: :"event_date(5i)",
+                                  class: "form-control" %>
+     </div>
+ <br>
+    <%= f.submit "Create event", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
+</div>

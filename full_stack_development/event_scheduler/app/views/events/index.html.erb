@@ -1,0 +1,66 @@
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<%= link_to 'Create events', event_new_form_path, :class => "btn-warning" %>
+
+<div class="row">
+    <div class="col-xs-6">
+ <% @events.each do |event| %>
+ 
+    <div class="row" style="background-color:#D3D3D3 ; margin:5px; padding:20px">
+    <label style="color:green">Event:</label><label> <%= event.eventtitle %></label><br>
+    
+    <label style="color:green">Description: </label><label><%= event.description %></label> 
+    
+<%= link_to 'Edit Event', edit_event_path(event)  %>
+   
+  
+<div class="container">
+ 
+ <!-- Trigger the modal with a button -->
+ <a  data-toggle="modal" data-target="#myModal2-<%= event.id %>">Participants</a>
+
+ <!-- Modal -->
+ <div class="modal fade" id="myModal2-<%= event.id %>" role="dialog">
+   <div class="modal-dialog">
+   
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title">List of Participants        </h4>
+       </div>
+       <div class="modal-body">
+         <% event.invitees.each do |user| %>
+   
+     <p><%= user.firstname %></p>
+   
+
+ <% end %>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+     
+   </div>
+ </div>
+ 
+</div>
+
+    </div>
+ <% end %>
+
+</div>
+<div class="col-xs-6">
+  
+    </div>
+
+
+
+
+
+
+</div>

@@ -8,8 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.string :invitees
       t.string :status
-      t.integer :user_id
-
+      t.integer :owner_id
       t.timestamps null: false
     end
   end

@@ -10,6 +10,9 @@ def create
     render "new"
   end
 end
+def index
+	@users=User.all
+end
 private
 def user_params
 	params.require(:user).permit(:firstname,:lastname,:username,:email,:phonenumber,:password,:password_confirmation)

@@ -13,23 +13,23 @@
   <h1>Sign Up</h1>
   <p>
     <%= f.label :Firstname %><br />
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname,:required =>true %>
   </p>
   <p>
     <%= f.label :Lastname %><br />
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname,:required =>true%>
   </p>
    <p>
     <%= f.label :Username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username,:required =>true %>
   </p>
   <p>
     <%= f.label :Email %><br />
-    <%= f.text_field :email %>
+    <%= f.email_field :email,:required =>true%>
   </p>
   <p>
-    <%= f.label :Phonenumber %><br />
-    <%= f.text_field :phonenumber %>
+    <%= f.label :Phonenumber%><br />
+    <%= f.text_field :phonenumber,:required =>true,:maxlength=>"10"%>
   </p>
   <p>
     <%= f.label :password %><br />
@@ -39,7 +39,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p class="button"><%= submit_tag "Ok" %>
+  <p class="button"><%= submit_tag "Register" %>
     <%= submit_tag "Cancel" %>
   </p>
   

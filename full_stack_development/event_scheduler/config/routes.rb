@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get "home_page" => "homepages#new", :as => "home_page"
+  root "homepages#new"
   get "event_page" => "events#new", :as =>"event_page"
   get "event_new_form" => "events#newform", :as => "event_new_form"
   post "event_new_form" => "events#create", :as => "event_new_create"
@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
-  root :to => "users#new"
+  get "edit_event/:id" => "events#edit",:as =>"edit_event"
+  put "event_update/:id"=> "events#update", :as=>"event_update"
+  # root :to => "users#new"
   resources :users
   resources :sessions 
   # You can have the root of your site routed with "root"
